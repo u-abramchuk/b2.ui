@@ -1,1 +1,4 @@
-.meteor
+**/typings/*
+!**/typings/meteor/
+
+node_modules
