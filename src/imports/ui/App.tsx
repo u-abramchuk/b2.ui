@@ -1,21 +1,21 @@
 import * as React from 'react';
 
-import Task from '../api/tasks'
-import TaskComponent from './Task';
+import WorkItem from '../api/workItems'
+import WorkItemComponent from './WorkItem';
 
 // App component - represents the whole app
 export default class App extends React.Component<any, any> {
-  getTasks() {
+  getWorkItems() {
     return [
-      new Task(1, 'Task1'),
-      new Task(2, 'Task2'),
-      new Task(3, 'Task3')
+      new WorkItem('1', 'WorkItem1'),
+      new WorkItem('2', 'WorkItem2'),
+      new WorkItem('3', 'WorkItem3')
     ];
   }
 
-  renderTasks() {
-    return this.getTasks().map((task) => (
-      <TaskComponent key={task.id} task={task} />
+  renderWorkItems() {
+    return this.getWorkItems().map((workItem) => (
+      <WorkItemComponent key={workItem.id} workItem={workItem} />
     ));
   }
 
@@ -23,11 +23,11 @@ export default class App extends React.Component<any, any> {
     return (
       <div className="container">
         <header>
-          <h1>Todo List</h1>
+          <h1>Work Items</h1>
         </header>
 
         <ul>
-          {this.renderTasks() }
+          {this.renderWorkItems() }
         </ul>
       </div>
     );
