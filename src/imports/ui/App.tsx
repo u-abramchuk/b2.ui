@@ -1,11 +1,15 @@
 import * as React from 'react';
+import * as reactMixin from 'react-mixin';
+
+import * as ReactMeteorData from 'meteor/react-meteor-data';
 
 import HeaderComponent from './header/header'
 import WorkItem from '../api/workItems'
 import WorkItemComponent from './WorkItem';
 
 // App component - represents the whole app
-export default class App extends React.Component<any, any> {
+@reactMixin.decorate(ReactMeteorData)
+export default class App extends React.Component<{}, {}> {
   getWorkItems() {
     return [
       new WorkItem('1', 'WorkItem1'),

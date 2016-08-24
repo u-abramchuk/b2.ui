@@ -1,11 +1,13 @@
 {
     "compilerOptions": {
-        "target": "es2015",
+        "target": "es6",
         "module": "commonjs",
         "sourceMap": true,
         "rootDir": ".",
         "jsx": "preserve",
         "declaration": false,
-        "noLib": false
+        "noLib": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
     }
 }

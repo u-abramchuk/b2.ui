@@ -4,7 +4,8 @@
     "browser": "typings/browser"
   },
   "globalDependencies": {
-    "meteor": "registry:dt/meteor#1.3.0+20160627161920",
+    "meteor/react-meteor-data": "file:typings/meteor/react-meteor-data/index.d.ts",
+    "react-addons-pure-render-mixin": "registry:dt/react-addons-pure-render-mixin#0.14.0+20160316155526",
     "react-mixin": "registry:dt/react-mixin#2.0.2+20160316155526"
   },
   "dependencies": {
