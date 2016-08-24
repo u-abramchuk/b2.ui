@@ -5,7 +5,7 @@ import * as ReactMeteorData from 'meteor/react-meteor-data';
 
 import HeaderComponent from './header/header'
 import WorkItem from '../api/workItems'
-import WorkItemComponent from './WorkItem';
+import WorkItemComponent from './workItem';
 
 // App component - represents the whole app
 @reactMixin.decorate(ReactMeteorData)
