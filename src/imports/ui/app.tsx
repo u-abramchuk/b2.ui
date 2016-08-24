@@ -1,26 +1,38 @@
 import * as React from 'react';
 import * as reactMixin from 'react-mixin';
+import { ReactMeteorData } from 'meteor/react-meteor-data';
 
-import * as ReactMeteorData from 'meteor/react-meteor-data';
+import { Workspace, Workspaces } from '../api/workspaces';
 
 import HeaderComponent from './header/header'
-import WorkItem from '../api/workItems'
-import WorkItemComponent from './workItem';
+import WorkspaceComponent from './workspace';
+
+interface AppData {
+  workspaces: Array<Workspace>;
+}
+
 
 // App component - represents the whole app
 @reactMixin.decorate(ReactMeteorData)
-export default class App extends React.Component<{}, {}> {
-  getWorkItems() {
-    return [
-      new WorkItem('1', 'WorkItem1'),
-      new WorkItem('2', 'WorkItem2'),
-      new WorkItem('3', 'WorkItem3')
-    ];
+export default class App extends React.Component<any, {}> {
+  
+  data:AppData;
+
+  constructor(props: any) {
+    super(props);
   }
 
-  renderWorkItems() {
-    return this.getWorkItems().map((workItem) => (
-      <WorkItemComponent key={workItem.id} workItem={workItem} />
+  getMeteorData() {
+    let query = {};
+
+    return {
+      workspaces: Workspaces.find(query, {sort: {id: 1}}).fetch()
+    }
+  }
+
+  renderWorkspaces() {
+    return this.data.workspaces.map((workspace: Workspace) => (
+      <WorkspaceComponent key={workspace.id} workspace={workspace} />
     ));
   }
 
@@ -30,7 +42,7 @@ export default class App extends React.Component<{}, {}> {
         <HeaderComponent />
 
         <ul>
-          {this.renderWorkItems() }
+          {this.renderWorkspaces() }
         </ul>
       </div>
     );

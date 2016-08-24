@@ -1,5 +1,7 @@
 declare module 'meteor/react-meteor-data' {
-    const ReactMeteorData: any;
+    interface IReactMeteorData {
+        data: any;
+    }
 
-    export = ReactMeteorData;
+    export const ReactMeteorData: IReactMeteorData;
 }
