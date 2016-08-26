@@ -22,3 +22,6 @@ barbatus:typescript
 static-html@1.1.12
 twbs:bootstrap
 react-meteor-data
+accounts-ui
+accounts-google
+accounts-github
