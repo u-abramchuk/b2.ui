@@ -22,7 +22,7 @@ export default class WorkspacesComponent extends React.Component<any, any> {
 
   renderWorkspaces() {
     return this.data.workspaces.map((workspace: Workspace) => (
-      <li>{workspace.name}</li>
+      <li key={workspace.id}>{workspace.name}</li>
     ));
   }
 

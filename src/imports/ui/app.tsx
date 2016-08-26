@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import HeaderComponent from './header/header'
+import HeaderComponent from './header/header';
+import WorkspaceCreatorComponent from './sidebar/workspaceCreator';
 import WorkspacesComponent from './sidebar/workspaces';
 
 // App component - represents the whole app
@@ -9,7 +10,10 @@ export default class App extends React.Component<any, {}> {
     return (
       <div className="container">
         <HeaderComponent />
-        <WorkspacesComponent />
+        <div className="container-fluid">
+          <WorkspaceCreatorComponent />
+          <WorkspacesComponent />
+        </div>
       </div>
     );
   }
