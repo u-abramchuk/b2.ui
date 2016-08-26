@@ -23,7 +23,8 @@ export default class WorkspaceCreateComponent extends React.Component<{}, {}> {
             <form className="new-workspace" onSubmit={this.handleSubmit.bind(this)}>
                 <input type="text"
                         ref="nameInput"
-                        placeholder="Workspace name" />
+                        placeholder="Workspace name"
+                        name="name" />
             </form>
         );
     }
