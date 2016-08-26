@@ -6,7 +6,7 @@ interface BlazeTemplateProps extends React.Props<Blaze.Template> {
     component?: any,
 }
 
-export default class AccountsUIWrapperComponent
+export default class BlazeWrapperComponent
     extends React.Component<BlazeTemplateProps, {}> {
 
     static propTypes: React.ValidationMap<BlazeTemplateProps> = {

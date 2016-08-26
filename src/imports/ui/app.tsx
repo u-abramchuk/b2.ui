@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import HeaderComponent from './header/header';
-import AccountsUIWrapper from './accountsUIWrapper';
+import BlazeWrapper from './blazeWrapper';
 import WorkspaceCreatorComponent from './sidebar/workspaceCreator';
 import WorkspacesComponent from './sidebar/workspaces';
 
@@ -13,7 +13,7 @@ export default class App extends React.Component<any, {}> {
       <div className="container">
         <HeaderComponent />
         <div className="container-fluid">
-          <AccountsUIWrapper template={template.loginButtons} />
+          <BlazeWrapper template={template.loginButtons} />
           <WorkspaceCreatorComponent />
           <WorkspacesComponent />
         </div>
