@@ -8,7 +8,6 @@ interface WorkspacesData {
   workspaces: Array<Workspace>;
 }
 
-// Task component - represents a single todo item
 @reactMixin.decorate(ReactMeteorData)
 export default class WorkspacesComponent extends React.Component<any, any> {
 

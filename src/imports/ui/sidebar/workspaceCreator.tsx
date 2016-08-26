@@ -4,7 +4,7 @@ import * as ReactDOM from 'react-dom';
 import { Workspaces } from '../../api/workspaces';
 
 export default class WorkspaceCreateComponent extends React.Component<{}, {}> {
-    handleSubmit(event){
+    handleSubmit(event) {
         event.preventDefault();
 
         const element = ReactDOM.findDOMNode<HTMLInputElement>(this.refs['nameInput']);
@@ -20,11 +20,11 @@ export default class WorkspaceCreateComponent extends React.Component<{}, {}> {
 
     render() {
         return (
-            <form className="new-workspace" onSubmit={this.handleSubmit.bind(this)}>
+            <form className="new-workspace" onSubmit={this.handleSubmit.bind(this) }>
                 <input type="text"
-                        ref="nameInput"
-                        placeholder="Workspace name"
-                        name="name" />
+                    ref="nameInput"
+                    placeholder="Workspace name"
+                    name="name" />
             </form>
         );
     }
