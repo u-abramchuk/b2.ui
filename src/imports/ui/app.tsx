@@ -1,22 +1,36 @@
 import * as React from 'react';
+import * as reactMixin from 'react-mixin';
+import { ReactMeteorData } from 'meteor/react-meteor-data';
 
 import HeaderComponent from './header/header';
-import BlazeWrapper from './blazeWrapper';
 import WorkspaceCreatorComponent from './sidebar/workspaceCreator';
 import WorkspacesComponent from './sidebar/workspaces';
 
-// App component - represents the whole app
-export default class App extends React.Component<any, {}> {
+interface AppData {
+  currentUser: Meteor.User;
+}
+
+@reactMixin.decorate(ReactMeteorData)
+export default class App extends React.Component<{}, {}> {
+
+  data: AppData;
+
+  getMeteorData() {
+    return {
+      currentUser: Meteor.user()
+    };
+  }
+
   render() {
-     var template = window['Template'];
     return (
       <div className="container">
         <HeaderComponent />
-        <div className="container-fluid">
-          <BlazeWrapper template={template.loginButtons} />
-          <WorkspaceCreatorComponent />
-          <WorkspacesComponent />
-        </div>
+        { this.data.currentUser ? (
+          <div className="container-fluid">
+            <WorkspaceCreatorComponent />
+            <WorkspacesComponent />
+          </div>
+        ) : null}
       </div>
     );
   }

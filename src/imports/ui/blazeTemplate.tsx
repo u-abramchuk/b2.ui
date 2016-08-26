@@ -3,24 +3,23 @@ import * as ReactDOM  from 'react-dom';
 
 interface BlazeTemplateProps extends React.Props<Blaze.Template> {
     template: any,
-    component?: any,
+    component?: any
 }
 
-export default class BlazeWrapperComponent
-    extends React.Component<BlazeTemplateProps, {}> {
+export default class BlazeTemplateComponent extends React.Component<BlazeTemplateProps, {}> {
 
     static propTypes: React.ValidationMap<BlazeTemplateProps> = {
         template: React.PropTypes.any.isRequired,
     }
 
     static defaultProps = {
-        component: 'div',
+        component: 'div'
     }
 
     view: Blaze.View;
 
     componentDidMount() {
-        let { template } = this.props;
+        const { template } = this.props;
         this.view = Blaze.render(template, ReactDOM.findDOMNode(this.refs['root']));
     }
 
@@ -30,6 +29,6 @@ export default class BlazeWrapperComponent
 
     render() {
         let Component = this.props.component;
-        return <Component {...this.props} ref="root" />;
+        return (<Component ref="root" />);
     }
 }
