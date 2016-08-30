@@ -14,9 +14,16 @@ export default class WorkspacesComponent extends React.Component<any, any> {
   data: WorkspacesData;
 
   getMeteorData() {
-    return {
-      workspaces: Workspaces.find({}, { sort: { id: 1 } }).fetch()
+    const data: WorkspacesData = {
+      workspaces: []
+    };
+    const handle = Meteor.subscribe('workspaces');
+
+    if (handle.ready()) {
+      data.workspaces = Workspaces.find({}, { sort: { id: 1 } }).fetch();
     }
+
+    return data;
   }
 
   renderWorkspaces() {

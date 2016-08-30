@@ -10,10 +10,7 @@ export default class WorkspaceCreateComponent extends React.Component<{}, {}> {
         const element = ReactDOM.findDOMNode<HTMLInputElement>(this.refs['nameInput']);
         const text = element.value.trim();
 
-        Workspaces.insert({
-            id: new Date().toISOString(),
-            name: text
-        });
+        Meteor.call('createWorkspace', text);
 
         element.value = '';
     }
