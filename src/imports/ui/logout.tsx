@@ -5,14 +5,14 @@ import { IRouterContext, browserHistory } from 'react-router';
 
 import BlazeTemplateComponent from './blazeTemplate';
 
-interface LoginData {
+interface LogoutData {
     isAuthenticated: boolean;
 }
 
 @reactMixin.decorate(ReactMeteorData)
-export default class LoginComponent extends React.Component<{}, {}> {
+export default class LogoutComponent extends React.Component<{}, {}> {
     context: IRouterContext;
-    data: LoginData;
+    data: LogoutData;
 
     static contextTypes: React.ValidationMap<any> = {
         router: React.PropTypes.object.isRequired
@@ -24,18 +24,18 @@ export default class LoginComponent extends React.Component<{}, {}> {
         };
     }
 
-    ensureAuthenticated() {
-        if (this.data.isAuthenticated) {
-            this.context.router.push('/');
+    ensureNotAuthenticated() {
+        if (!this.data.isAuthenticated) {
+            this.context.router.push('/login');
         }
     }
 
     componentWillMount() {
-        this.ensureAuthenticated();
+        this.ensureNotAuthenticated();
     }
 
     componentDidUpdate() {
-        this.ensureAuthenticated();
+        this.ensureNotAuthenticated();
     }
 
     render() {
