@@ -1,7 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
  
-import App from '../imports/ui/app';
+import ApplicationComponent from '../imports/ui/app';
+import RoutingComponent from '../imports/startup/routes';
 
 import { Accounts } from 'meteor/accounts-base';
  
@@ -10,5 +11,5 @@ Accounts.ui.config({
 });
  
 Meteor.startup(() => {
-  ReactDOM.render(<App />, document.getElementById('render-target'));
+  ReactDOM.render(<RoutingComponent />, document.getElementById('render-target'));
 });
