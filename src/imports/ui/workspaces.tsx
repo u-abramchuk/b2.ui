@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as reactMixin from 'react-mixin';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 
-import { Workspace, Workspaces } from '../../api/workspaces'
+import { Workspace, Workspaces } from '../api/workspaces'
 
 interface WorkspacesData {
   workspaces: Array<Workspace>;

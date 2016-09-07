@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Link, IInjectedProps } from 'react-router';
 
-import WorkspaceCreatorComponent from './sidebar/workspaceCreator';
-import WorkspacesComponent from './sidebar/workspaces';
+import WorkspacesComponent from './workspaces';
 import LogoutComponent from './logout';
 
 export default class ApplicationComponent extends React.Component<IInjectedProps, {}> {
@@ -11,9 +10,16 @@ export default class ApplicationComponent extends React.Component<IInjectedProps
     return (
       <div className="container">
         <div className="container-fluid">
-          <LogoutComponent />
-          <Link to="/workspaces/new">Add</Link>
-          {this.props.children}
+          <header>
+            <LogoutComponent />
+          </header>
+          <div className="sidebar">
+            <Link to="/workspaces/new">Add</Link>
+            <WorkspacesComponent />
+          </div>
+          <div className="main-content">
+            {this.props.children}
+          </div>
         </div>
       </div>
     );

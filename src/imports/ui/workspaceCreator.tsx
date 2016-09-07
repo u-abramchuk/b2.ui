@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { IRouterContext, IInjectedProps } from 'react-router';
 
-import { Workspaces } from '../../api/workspaces';
+import { Workspaces } from '../api/workspaces';
 
 export default class WorkspaceCreateComponent extends React.Component<IInjectedProps, {}> {
     context: IRouterContext;
