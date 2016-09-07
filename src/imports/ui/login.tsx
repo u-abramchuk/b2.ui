@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as reactMixin from 'react-mixin';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
-import { IRouterContext, browserHistory } from 'react-router';
+import { IRouterContext, IInjectedProps, browserHistory } from 'react-router';
 
 import BlazeTemplateComponent from './blazeTemplate';
 
@@ -10,7 +10,7 @@ interface LoginData {
 }
 
 @reactMixin.decorate(ReactMeteorData)
-export default class LoginComponent extends React.Component<{}, {}> {
+export default class LoginComponent extends React.Component<IInjectedProps, {}> {
     context: IRouterContext;
     data: LoginData;
 
