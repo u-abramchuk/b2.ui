@@ -1,9 +1,16 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { IRouterContext, IInjectedProps } from 'react-router';
 
-import { Workspaces } from '../../api/workspaces';
+import { Workspaces } from '../api/workspaces';
 
-export default class WorkspaceCreateComponent extends React.Component<{}, {}> {
+export default class WorkspaceCreateComponent extends React.Component<IInjectedProps, {}> {
+    context: IRouterContext;
+
+    static contextTypes: React.ValidationMap<any> = {
+        router: React.PropTypes.object.isRequired
+    }
+    
     handleSubmit(event) {
         event.preventDefault();
 
@@ -13,6 +20,8 @@ export default class WorkspaceCreateComponent extends React.Component<{}, {}> {
         Meteor.call('createWorkspace', text);
 
         element.value = '';
+
+        this.context.router.push('/');
     }
 
     render() {

@@ -1,36 +1,26 @@
 import * as React from 'react';
-import * as reactMixin from 'react-mixin';
-import { ReactMeteorData } from 'meteor/react-meteor-data';
+import { Link, IInjectedProps } from 'react-router';
 
-import HeaderComponent from './header/header';
-import WorkspaceCreatorComponent from './sidebar/workspaceCreator';
-import WorkspacesComponent from './sidebar/workspaces';
+import WorkspacesComponent from './workspaces';
+import LogoutComponent from './logout';
 
-interface AppData {
-  currentUser: Meteor.User;
-}
-
-@reactMixin.decorate(ReactMeteorData)
-export default class App extends React.Component<{}, {}> {
-
-  data: AppData;
-
-  getMeteorData() {
-    return {
-      currentUser: Meteor.user()
-    };
-  }
+export default class ApplicationComponent extends React.Component<IInjectedProps, {}> {
 
   render() {
     return (
       <div className="container">
-        <HeaderComponent />
-        { this.data.currentUser ? (
-          <div className="container-fluid">
-            <WorkspaceCreatorComponent />
+        <div className="container-fluid">
+          <header>
+            <LogoutComponent />
+          </header>
+          <div className="sidebar">
+            <Link to="/workspaces/new">Add</Link>
             <WorkspacesComponent />
           </div>
-        ) : null}
+          <div className="main-content">
+            {this.props.children}
+          </div>
+        </div>
       </div>
     );
   }
