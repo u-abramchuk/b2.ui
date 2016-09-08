@@ -42,7 +42,18 @@ export default class LoginComponent extends React.Component<IInjectedProps, {}> 
         var template = window['Template'];
 
         return (
-            <BlazeTemplateComponent template={template.loginButtons} />
+            <div className="login-page">
+                <div className="container-fluid-full">
+                    <div className="row-fluid">
+                        <div className="row-fluid">
+                            <div className="login-box">
+                                <h2>Login to your account</h2>
+                                <BlazeTemplateComponent template={template.loginButtons} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         );
     }
 }
