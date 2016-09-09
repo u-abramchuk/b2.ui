@@ -3009,3 +3009,7 @@ ul.messagesList li span.date {
 .login-page {
 	background: url(img/bg-login.jpg) !important; 
 }
+
+.login-box .accounts {
+	margin-left: 30px;
+}

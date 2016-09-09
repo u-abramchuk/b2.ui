@@ -23,3 +23,5 @@ react-meteor-data
 accounts-ui
 accounts-google
 accounts-github
+std:accounts-bootstrap
+fortawesome:fontawesome
