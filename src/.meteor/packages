@@ -25,3 +25,4 @@ accounts-google
 accounts-github
 std:accounts-bootstrap
 fortawesome:fontawesome
+fourseven:scss@3.8.0_1
