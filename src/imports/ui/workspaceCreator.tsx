@@ -24,13 +24,21 @@ export default class WorkspaceCreateComponent extends React.Component<IInjectedP
         this.context.router.push('/');
     }
 
+    handleCancel(event){
+        event.preventDefault();
+
+        this.context.router.push('/');
+    }
+
     render() {
         return (
-            <form className="new-workspace" onSubmit={this.handleSubmit.bind(this) }>
+            <form className="new-workspace">
                 <input type="text"
                     ref="nameInput"
                     placeholder="Workspace name"
                     name="name" />
+                <button type="submit" onClick={this.handleSubmit.bind(this) }>Create</button>
+                <button onClick={this.handleCancel.bind(this)}>Cancel</button> 
             </form>
         );
     }
