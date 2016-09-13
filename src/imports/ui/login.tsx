@@ -1,16 +1,13 @@
 import * as React from 'react';
-import * as reactMixin from 'react-mixin';
-import { ReactMeteorData } from 'meteor/react-meteor-data';
 import { IRouterContext, IInjectedProps, browserHistory } from 'react-router';
+import MeteorComponent from './common/meteorComponent';
 
 interface LoginData {
     isAuthenticated: boolean;
 }
 
-@reactMixin.decorate(ReactMeteorData)
-export default class LoginComponent extends React.Component<IInjectedProps, {}> {
+export default class LoginComponent extends MeteorComponent<IInjectedProps, {}, LoginData> {
     context: IRouterContext;
-    data: LoginData;
 
     static contextTypes: React.ValidationMap<any> = {
         router: React.PropTypes.object.isRequired
@@ -22,18 +19,10 @@ export default class LoginComponent extends React.Component<IInjectedProps, {}> 
         };
     }
 
-    ensureAuthenticated() {
+    componentDidUpdate() {
         if (this.data.isAuthenticated) {
             this.context.router.push('/');
         }
-    }
-
-    componentWillMount() {
-        this.ensureAuthenticated();
-    }
-
-    componentDidUpdate() {
-        this.ensureAuthenticated();
     }
 
     loginWithGitHub(event) {

@@ -1,18 +1,15 @@
 import * as React from 'react';
-import * as reactMixin from 'react-mixin';
-import { ReactMeteorData } from 'meteor/react-meteor-data';
 import { IRouterContext, browserHistory } from 'react-router';
 
-import BlazeTemplateComponent from './blazeTemplate';
+import MeteorComponent from './common/meteorComponent';
+import BlazeTemplateComponent from './common/blazeTemplate';
 
 interface LogoutData {
     isAuthenticated: boolean;
 }
 
-@reactMixin.decorate(ReactMeteorData)
-export default class LogoutComponent extends React.Component<{}, {}> {
+export default class LogoutComponent extends MeteorComponent<{}, {}, LogoutData> {
     context: IRouterContext;
-    data: LogoutData;
 
     static contextTypes: React.ValidationMap<any> = {
         router: React.PropTypes.object.isRequired
@@ -24,18 +21,10 @@ export default class LogoutComponent extends React.Component<{}, {}> {
         };
     }
 
-    ensureNotAuthenticated() {
+    componentDidUpdate() {
         if (!this.data.isAuthenticated) {
             this.context.router.push('/login');
         }
-    }
-
-    componentWillMount() {
-        this.ensureNotAuthenticated();
-    }
-
-    componentDidUpdate() {
-        this.ensureNotAuthenticated();
     }
 
     render() {

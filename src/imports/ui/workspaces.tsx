@@ -2,16 +2,14 @@ import * as React from 'react';
 import * as reactMixin from 'react-mixin';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 
+import MeteorComponent from './common/meteorComponent';
 import { Workspace, Workspaces } from '../api/workspaces'
 
 interface WorkspacesData {
   workspaces: Array<Workspace>;
 }
 
-@reactMixin.decorate(ReactMeteorData)
-export default class WorkspacesComponent extends React.Component<any, any> {
-
-  data: WorkspacesData;
+export default class WorkspacesComponent extends MeteorComponent<any, any, WorkspacesData> {
 
   getMeteorData() {
     const data: WorkspacesData = {
