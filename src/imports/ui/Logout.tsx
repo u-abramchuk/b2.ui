@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { IRouterContext, browserHistory } from 'react-router';
+import { IRouterContext } from 'react-router';
 
-import MeteorComponent from './common/meteorComponent';
-import BlazeTemplateComponent from './common/blazeTemplate';
+import MeteorComponent from './common/MeteorComponent';
+import BlazeTemplate from './common/BlazeTemplate';
 
 interface LogoutData {
     isAuthenticated: boolean;
 }
 
-export default class LogoutComponent extends MeteorComponent<{}, {}, LogoutData> {
+export default class Logout extends MeteorComponent<{}, {}, LogoutData> {
     context: IRouterContext;
 
     static contextTypes: React.ValidationMap<any> = {
@@ -31,7 +31,7 @@ export default class LogoutComponent extends MeteorComponent<{}, {}, LogoutData>
         var template = window['Template'];
 
         return (
-            <BlazeTemplateComponent template={template.loginButtons} />
+            <BlazeTemplate template={template.loginButtons} />
         );
     }
 }

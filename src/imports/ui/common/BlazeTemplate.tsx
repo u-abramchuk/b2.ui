@@ -6,7 +6,7 @@ interface BlazeTemplateProps extends React.Props<Blaze.Template> {
     component?: any
 }
 
-export default class BlazeTemplateComponent extends React.Component<BlazeTemplateProps, {}> {
+export default class BlazeTemplate extends React.Component<BlazeTemplateProps, {}> {
 
     static propTypes: React.ValidationMap<BlazeTemplateProps> = {
         template: React.PropTypes.any.isRequired,
@@ -28,7 +28,7 @@ export default class BlazeTemplateComponent extends React.Component<BlazeTemplat
     }
 
     render() {
-        let Component = this.props.component;
-        return (<Component ref="root" />);
+        const component = this.props.component;
+        return (<component ref="root" />);
     }
 }

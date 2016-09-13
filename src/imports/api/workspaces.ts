@@ -6,10 +6,10 @@ export interface Workspace {
     userId: string;
 }
 
-export const Workspaces = new Mongo.Collection<Workspace>('workspaces');
+export const Workspaces = new Mongo.Collection<Workspace>('Workspaces');
 
-if (Meteor.isServer){
-    Meteor.publish('workspaces', function() {
+if (Meteor.isServer) {
+    Meteor.publish('workspaces', function () {
         return Workspaces.find();
     });
 }

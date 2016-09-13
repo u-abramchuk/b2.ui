@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { IRouterContext, IInjectedProps, browserHistory } from 'react-router';
-import MeteorComponent from './common/meteorComponent';
+
+import MeteorComponent from './common/MeteorComponent';
 
 interface LoginData {
     isAuthenticated: boolean;
 }
 
-export default class LoginComponent extends MeteorComponent<IInjectedProps, {}, LoginData> {
+export default class Login extends MeteorComponent<IInjectedProps, {}, LoginData> {
     context: IRouterContext;
 
     static contextTypes: React.ValidationMap<any> = {
