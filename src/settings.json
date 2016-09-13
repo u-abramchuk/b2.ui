@@ -1,0 +1,12 @@
+{
+    "github": {
+        "clientId": "ddbe69610bb97e57484d",
+        "secret": "824e973848de44b4caa63f730e3e3799975e6074",
+        "loginStyle": "popup"
+    },
+    "google": {
+        "clientId": "724938441599-atbns9cv0pe9gb3nhvth4pspd3gn9tev.apps.googleusercontent.com",
+        "secret": "qCCYpzMoRMt_XwgjW2Hho1XV",
+        "loginStyle": "popup"
+    }
+}
