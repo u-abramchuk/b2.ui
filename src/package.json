@@ -10,5 +10,8 @@
     "react-dom": "^15.3.1",
     "react-mixin": "^3.0.5",
     "react-router": "^2.7.0"
+  },
+  "devDependencies": {
+    "typescript": "^2.1.0-dev.20160913"
   }
 }
