@@ -3,8 +3,6 @@ import * as reactMixin from 'react-mixin';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 import { IRouterContext, IInjectedProps, browserHistory } from 'react-router';
 
-import BlazeTemplateComponent from './blazeTemplate';
-
 interface LoginData {
     isAuthenticated: boolean;
 }
@@ -38,11 +36,28 @@ export default class LoginComponent extends React.Component<IInjectedProps, {}> 
         this.ensureAuthenticated();
     }
 
+    loginWithGitHub(event) {
+        event.preventDefault();
+        Meteor.loginWithGithub();
+    }
+
+    loginWithGoogle(event) {
+        event.preventDefault();
+        Meteor.loginWithGoogle();
+    }
+
     render() {
         var template = window['Template'];
 
         return (
-            <BlazeTemplateComponent template={template.loginButtons} />
+            <div>
+                <div>
+                    <a onClick={this.loginWithGitHub.bind(this)} href="#">Login with GitHub</a>
+                </div>
+                <div>
+                    <a onClick={this.loginWithGoogle.bind(this)} href="#">Login with Google</a>
+                </div>
+            </div>
         );
     }
 }
