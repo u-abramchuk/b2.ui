@@ -8,5 +8,11 @@
         "clientId": "724938441599-atbns9cv0pe9gb3nhvth4pspd3gn9tev.apps.googleusercontent.com",
         "secret": "qCCYpzMoRMt_XwgjW2Hho1XV",
         "loginStyle": "popup"
+    },
+    "b2.domain": {
+        "url": "http://localhost:5000"
+    },
+    "rabbitmq": {
+        "url": "amqp://guest:guest@localhost:5672"
     }
 }
