@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import * as React from 'react';
 import { IRouterContext } from 'react-router';
 

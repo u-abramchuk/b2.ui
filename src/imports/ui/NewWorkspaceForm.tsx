@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { IRouterContext, IInjectedProps } from 'react-router';
@@ -10,7 +11,7 @@ export default class NewWorkspaceForm extends React.Component<IInjectedProps, {}
     static contextTypes: React.ValidationMap<any> = {
         router: React.PropTypes.object.isRequired
     }
-    
+
     handleSubmit(event) {
         event.preventDefault();
 
@@ -24,7 +25,7 @@ export default class NewWorkspaceForm extends React.Component<IInjectedProps, {}
         this.context.router.push('/');
     }
 
-    handleCancel(event){
+    handleCancel(event) {
         event.preventDefault();
 
         this.context.router.push('/');
@@ -37,8 +38,8 @@ export default class NewWorkspaceForm extends React.Component<IInjectedProps, {}
                     ref="nameInput"
                     placeholder="Workspace name"
                     name="name" />
-                <button type="submit" onClick={this.handleSubmit.bind(this) }>Create</button>
-                <button onClick={this.handleCancel.bind(this)}>Cancel</button> 
+                <button type="submit" onClick={this.handleSubmit.bind(this)}>Create</button>
+                <button onClick={this.handleCancel.bind(this)}>Cancel</button>
             </form>
         );
     }

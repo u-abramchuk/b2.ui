@@ -1,5 +1,6 @@
+import { Blaze } from 'meteor/blaze';
 import * as React from 'react';
-import * as ReactDOM  from 'react-dom';
+import * as ReactDOM from 'react-dom';
 
 interface BlazeTemplateProps extends React.Props<Blaze.Template> {
     template: any,
@@ -20,6 +21,7 @@ export default class BlazeTemplate extends React.Component<BlazeTemplateProps, {
 
     componentDidMount() {
         const { template } = this.props;
+        
         this.view = Blaze.render(template, ReactDOM.findDOMNode(this.refs['root']));
     }
 
@@ -29,6 +31,7 @@ export default class BlazeTemplate extends React.Component<BlazeTemplateProps, {
 
     render() {
         const component = this.props.component;
+
         return (<component ref="root" />);
     }
 }

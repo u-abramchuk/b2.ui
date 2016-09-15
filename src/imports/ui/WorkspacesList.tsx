@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import * as React from 'react';
 import * as reactMixin from 'react-mixin';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
@@ -33,7 +34,7 @@ export default class WorkspacesList extends MeteorComponent<any, any, Workspaces
   render() {
     return this.data.workspaces.length > 0 ? (
       <ul>
-        { this.renderWorkspaces() }
+        {this.renderWorkspaces()}
       </ul>
     ) : null;
   }

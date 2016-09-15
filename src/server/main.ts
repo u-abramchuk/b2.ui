@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { ServiceConfiguration } from 'meteor/service-configuration';
 
 import { AuthSettings } from './settings/auth';

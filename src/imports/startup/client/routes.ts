@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { RouteConfig } from 'react-router';
 import Application from '../../ui/Application';
 import Login from '../../ui/Login';
