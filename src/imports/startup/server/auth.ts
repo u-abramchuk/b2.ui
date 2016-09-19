@@ -1,7 +1,5 @@
 import { ServiceConfiguration } from 'meteor/service-configuration';
 
-import '../../api/workspaces';
-
 enum LoginStyle {
     popup,
     redirect

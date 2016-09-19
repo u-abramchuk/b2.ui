@@ -4,7 +4,7 @@ import * as reactMixin from 'react-mixin';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 
 import MeteorComponent from './common/MeteorComponent';
-import { Workspace, Workspaces } from '../api/workspaces';
+import { Workspace, Workspaces } from '../api/workspaces/workspaces';
 
 interface WorkspacesData {
   workspaces: Array<Workspace>;
@@ -19,7 +19,7 @@ export default class WorkspacesList extends MeteorComponent<any, any, Workspaces
     const handle = Meteor.subscribe('workspaces');
 
     if (handle.ready()) {
-      data.workspaces = Workspaces.find({}, { sort: { id: 1 } }).fetch();
+      data.workspaces = Workspaces.find({}, { sort: { name: 1 } }).fetch();
     }
 
     return data;

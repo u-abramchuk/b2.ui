@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { IRouterContext, IInjectedProps } from 'react-router';
 
-import { Workspaces } from '../api/workspaces';
+import { Workspaces } from '../api/workspaces/workspaces';
 
 export default class NewWorkspaceForm extends React.Component<IInjectedProps, {}> {
     context: IRouterContext;
